@@ -57,6 +57,8 @@ h1 {
 
 button {
   cursor: pointer;
+  border-radius: 30px;
+  background: transparent;
 }
 
 .hidden {
