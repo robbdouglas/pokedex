@@ -65,11 +65,14 @@ function displayPokemonData(data) {
     const shinySpriteElement = document.createElement("img");
     shinySpriteElement.src = data.sprites.front_shiny;
     shinySpriteElement.alt = "Shiny Pokémon";
+    shinySpriteElement.title = `${capitalizedPokemonName} (Shiny)`;
     shinySpriteElement.classList.add("shiny-sprite");
     pokemonImageElement.insertAdjacentElement("afterend", shinySpriteElement);
   }
 
   pokemonImageElement.src = data.sprites.front_default;
+  pokemonImageElement.alt = capitalizedPokemonName;
+  pokemonImageElement.title = capitalizedPokemonName;
 
   pokemonStatsElement.innerHTML = "";
   pokemonAbilitiesElement.innerHTML = "";
