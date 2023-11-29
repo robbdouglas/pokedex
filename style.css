@@ -11,6 +11,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  caret-color: transparent;
+  user-select: none;
 }
 
 h1 {
@@ -32,7 +34,7 @@ h1 {
     0 0 30px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.3s ease-in-out, height 0.5s ease-in-out,
     opacity 0.5s ease-in-out;
-  overflow: hidden;
+  overflow: auto;
   max-height: 1000px; /* Setze dies auf eine ausreichend große Zahl */
   opacity: 1;
 }
@@ -83,6 +85,44 @@ li {
   border-radius: 10px;
   font-weight: bold;
   color: white;
+}
+
+.star-button {
+  font-size: 3em;
+  color: gold;
+  animation: pulse 1s infinite alternate;
+  background-color: transparent;
+  border: none;
+  transition: color 0.3s ease-in-out;
+  position: relative;
+  display: block;
+  margin-top: 30px;
+}
+
+#star-box {
+  display: flex;
+  justify-content: center;
+}
+
+#favorite-text {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(25, 24, 24);
+  font-size: 20px;
+}
+.star-button:hover {
+  color: red;
+}
+.star-button:hover #favorite-text {
+  display: inline;
+}
+@keyframes pulse {
+  to {
+    transform: scale(1.2);
+  }
 }
 
 @keyframes fadeInDown {

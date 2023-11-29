@@ -51,6 +51,15 @@ function displayPokemonData(data) {
   const pokemonTypesElement = document.getElementById("pokemonTypes");
   const pokemonCardElement = document.getElementById("pokemonCard");
 
+  const pokemonMovesElement = document.getElementById("pokemonMoves");
+  pokemonMovesElement.innerHTML = "";
+
+  data.moves.slice(0, 5).forEach((move) => {
+    const li = document.createElement("li");
+    li.textContent = move.move.name;
+    pokemonMovesElement.appendChild(li);
+  });   
+
   const capitalizedPokemonName =
     data.name.charAt(0).toUpperCase() + data.name.slice(1);
 

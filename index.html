@@ -23,17 +23,30 @@
       <label for="pokemonInput">Pokémon:</label>
       <input type="text" id="pokemonInput" />
       <button onclick="fetchPokemonData()">Get Pokémon</button>
-      <a href="favorites.html">View Favorites</a>
-      <button onclick="toggleFavorite()">Add to Favorites</button>
+      <button onclick="window.location.href='favorites.html'">
+        View Favorites
+      </button>
+
       <div id="pokemonCard" class="hidden">
         <div id="navArrows">
           <span id="prevArrow" onclick="navigatePokemon('prev')"
             ><button>previous</button></span
           >
           <h2 id="pokemonName"></h2>
+
           <span id="nextArrow" onclick="navigatePokemon('next')"
             ><button>next</button></span
           >
+          <div id="star-box">
+            <button
+              onclick="toggleFavorite()"
+              class="star-button"
+              onmouseover="showText()"
+              onmouseout="hideText()"
+            >
+              &#9733;<span id="favorite-text">Add to Favorites</span>
+            </button>
+          </div>
         </div>
         <img id="pokemonImage" alt="Pokemon" />
         <h3>Types:</h3>
@@ -42,6 +55,8 @@
         <ul id="pokemonStats"></ul>
         <h3>Abilities:</h3>
         <ul id="pokemonAbilities"></ul>
+        <h3>Moves:</h3>
+        <ul id="pokemonMoves"></ul>
       </div>
       <p id="errorMessage" class="hidden">Please enter a Pokémon name.</p>
     </div>
