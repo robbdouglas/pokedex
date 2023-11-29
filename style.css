@@ -27,15 +27,15 @@ h1 {
 
 .container {
   text-align: center;
-  background-color: #ffffff63;
+  background-color: #ffffff7d;
   padding: 20px;
   border-radius: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.2),
     0 0 30px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.3s ease-in-out, height 0.5s ease-in-out,
     opacity 0.5s ease-in-out;
-  overflow: auto;
-  max-height: 1000px; /* Setze dies auf eine ausreichend große Zahl */
+  overflow: hidden;
+  max-height: 60rem;
   opacity: 1;
 }
 
@@ -71,6 +71,15 @@ label {
 
 #pokemonCard {
   margin-top: 20px;
+}
+
+#pokemonProperties {
+  display: flex;
+  justify-content: center;
+}
+
+#pokemonProperties div {
+  margin: 20px;
 }
 
 ul {
