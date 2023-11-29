@@ -220,4 +220,11 @@ function toggleFavorite() {
 
   // Aktualisiere die Favoriten im Local Storage
   localStorage.setItem("favorites", JSON.stringify(favorites));
+
+  // Zeige den Alert an
+  const alertMessage = isFavorite
+    ? `${capitalizedPokemonName} has been removed from favorites`
+    : `${capitalizedPokemonName} has been added to favorites`;
+
+  alert(alertMessage);
 }
