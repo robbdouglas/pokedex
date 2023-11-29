@@ -38,6 +38,7 @@ async function fetchPokemonData() {
   if (!pokemonName) {
     errorMessageElement.textContent = "Please enter a Pokémon name.";
     errorMessageElement.style.display = "block";
+    errorMessageElement.style.color = "red";
     pokemonCardElement.style.animation = "none";
     return;
   }
@@ -62,10 +63,12 @@ async function fetchPokemonData() {
     pokemonCardElement.style.animation = "fadeInDown 0.7s ease-in-out";
   } catch (error) {
     console.error("Error fetching Pokémon data:", error);
-    errorMessageElement.textContent =
-      "Please enter a valid Pokémon name or ID (between 1 and 1017).";
+
+    // Zeige den Fehler in der Fehlermeldung an
+    errorMessageElement.textContent = `Error: ${error.message}`;
     errorMessageElement.style.display = "block";
     errorMessageElement.style.color = "red";
+
     pokemonCardElement.style.animation = "none";
   }
 }
