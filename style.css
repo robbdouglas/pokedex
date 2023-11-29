@@ -59,6 +59,10 @@ h1 {
   display: none;
 }
 
+label {
+  font-weight: bold;
+}
+
 #pokemonCard {
   margin-top: 20px;
 }
