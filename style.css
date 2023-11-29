@@ -1,88 +1,97 @@
 body {
-    font-family: "Arial", sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    box-sizing: border-box;
-    background-image: url(./images/wp3170171-pokemon-pokedex-background.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  h1 {
-    font-family: "Pokemon Solid", sans-serif;
-    color: yellow;
-    font-size: 4rem;
-    color: rgb(233, 233, 47);
-    text-shadow: 5px 5px rgb(0, 0, 0), 5px -5px rgb(0, 0, 0),
-      -5px -5px rgb(0, 0, 0), -5px 5px rgb(0, 0, 0);
-    text-align: center;
-  }
-  
-  .container {
-    text-align: center;
-    background-color: #ffffffa2;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.2),
-      0 0 30px rgba(0, 0, 0, 0.3);
-    transition: box-shadow 0.3s ease-in-out, height 0.5s ease-in-out,
-      opacity 0.5s ease-in-out;
-    overflow: hidden;
-    max-height: 1000px; /* Setze dies auf eine ausreichend große Zahl */
-    opacity: 1;
-  }
-  
-  .container.collapsed {
-    height: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+  background-image: url(./images/wp3170171-pokemon-pokedex-background.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  font-family: "Pokemon Solid", sans-serif;
+  color: yellow;
+  font-size: 4rem;
+  color: rgb(233, 233, 47);
+  text-shadow: 5px 5px rgb(0, 0, 0), 5px -5px rgb(0, 0, 0),
+    -5px -5px rgb(0, 0, 0), -5px 5px rgb(0, 0, 0);
+  text-align: center;
+}
+
+.container {
+  text-align: center;
+  background-color: #ffffffa2;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease-in-out, height 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
+  overflow: hidden;
+  max-height: 1000px; /* Setze dies auf eine ausreichend große Zahl */
+  opacity: 1;
+}
+
+.container.collapsed {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.container:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.2),
+    0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.container.collapsed:hover {
+  height: auto;
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+#pokemonCard {
+  margin-top: 20px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+#pokemonImage {
+  max-width: 200px;
+  margin: 10px 0;
+}
+
+#pokemonTypes li {
+  display: inline-block;
+  padding: 5px;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+@keyframes fadeInDown {
+  from {
     opacity: 0;
-    overflow: hidden;
+    transform: translateY(-20px);
   }
-  
-  .container:hover {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.2),
-      0 0 15px rgba(0, 0, 0, 0.3);
-  }
-  
-  .container.collapsed:hover {
-    height: auto;
+  to {
     opacity: 1;
+    transform: translateY(0);
   }
-  
-  .hidden {
-    display: none;
-  }
-  
-  #pokemonCard {
-    margin-top: 20px;
-  }
-  
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-  
-  li {
-    list-style: none;
-  }
-  
-  #pokemonImage {
-    max-width: 200px;
-    margin: 10px 0;
-  }
-  
-  @keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+}

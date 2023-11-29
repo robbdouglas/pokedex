@@ -48,6 +48,7 @@ function displayPokemonData(data) {
   const pokemonImageElement = document.getElementById("pokemonImage");
   const pokemonStatsElement = document.getElementById("pokemonStats");
   const pokemonAbilitiesElement = document.getElementById("pokemonAbilities");
+  const pokemonTypesElement = document.getElementById("pokemonTypes");
   const pokemonCardElement = document.getElementById("pokemonCard");
 
   const capitalizedPokemonName =
@@ -72,6 +73,7 @@ function displayPokemonData(data) {
 
   pokemonStatsElement.innerHTML = "";
   pokemonAbilitiesElement.innerHTML = "";
+  pokemonTypesElement.innerHTML = "";
 
   data.stats.forEach((stat) => {
     const li = document.createElement("li");
@@ -85,7 +87,57 @@ function displayPokemonData(data) {
     pokemonAbilitiesElement.appendChild(li);
   });
 
+  data.types.forEach((type) => {
+    const li = document.createElement("li");
+    li.textContent = type.type.name;
+    li.style.backgroundColor = getTypeColor(type.type.name);
+    pokemonTypesElement.appendChild(li);
+  });
+
   pokemonCardElement.style.display = "block";
+}
+
+function getTypeColor(type) {
+  switch (type) {
+    case "normal":
+      return "#908B84";
+    case "grass":
+      return "#8DAF72";
+    case "bug":
+      return "#96A51F";
+    case "dark":
+      return "#4C3A2E";
+    case "dragon":
+      return "#6657B3";
+    case "electric":
+      return "#EABB3C";
+    case "fairy":
+      return "#F1BBEC";
+    case "fighting":
+      return "#713629";
+    case "flying":
+      return "#8FA1E0";
+    case "fire":
+      return "#C4431A";
+    case "ghost":
+      return "#625FA9";
+    case "ground":
+      return "#BEAA62";
+    case "ice":
+      return "#89E3FF";
+    case "poison":
+      return "#7F4381";
+    case "psychic":
+      return "#D5537E";
+    case "rock":
+      return "#B6A462";
+    case "steel":
+      return "#B5B6BF";
+    case "water":
+      return "#4393E5";
+    default:
+      return "#FFFFFF";
+  }
 }
 
 function navigatePokemon(direction) {
