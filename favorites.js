@@ -6,16 +6,20 @@ function loadFavorites() {
   // Hole die gespeicherten Favoriten aus dem Local Storage
   const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
+  // Sortiere die Favoriten nach der ID
+  favorites.sort((a, b) => a.id - b.id);
+
   // Zeige die Favoriten an
   favoriteListElement.innerHTML = ""; // Leere die Liste, um sie neu zu füllen
   favorites.forEach((favorite) => {
     const li = document.createElement("li");
-    li.textContent = `${favorite.name} (ID: ${favorite.id})`;
+    li.innerHTML = `<strong>${favorite.name}</strong> (ID: ${favorite.id})`;
 
     // Erstelle ein span-Element für den "X"-Button
     const deleteButton = document.createElement("span");
     deleteButton.textContent = "X";
     deleteButton.className = "delete-button";
+    deleteButton.title = "Remove from favorites";
 
     // Füge einen Event-Listener hinzu, um das Element zu löschen
     deleteButton.addEventListener("click", (event) => {
@@ -26,7 +30,7 @@ function loadFavorites() {
 
     // Füge einen Event-Listener hinzu, um zur Hauptseite mit dem Pokémon zurückzukehren
     li.addEventListener("click", () => {
-      window.location.href = `index.html#${favorite.id}`; // Hier die URL deiner Hauptseite eintragen und die Pokémon-ID als Anker verwenden
+      window.location.href = `index.html#${favorite.id}`;
     });
 
     // Füge den "X"-Button und das Listenelement zur Liste hinzu
