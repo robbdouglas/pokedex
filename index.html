@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./images/icons8-pokeball-96.png"
+    />
+    <!-- POKEMON FONT -->
+    <link
+      href="https://fonts.cdnfonts.com/css/pokemon-solid"
+      rel="stylesheet"
+    />
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Pokédex</h1>
+      <p>Please enter a Pokémon name or ID number</p>
+      <label for="pokemonInput">Pokémon:</label>
+      <input type="text" id="pokemonInput" />
+      <button onclick="fetchPokemonData()">Get Pokémon</button>
+      <div id="pokemonCard" class="hidden">
+        <div id="navArrows">
+          <span id="prevArrow" onclick="navigatePokemon('prev')"><button>previous</button></span>
+          <h2 id="pokemonName"></h2>
+          <span id="nextArrow" onclick="navigatePokemon('next')"><button>next</button></span>
+        </div>
+        <img id="pokemonImage" alt="Pokemon" />
+        <h3>Base Stats:</h3>
+        <ul id="pokemonStats"></ul>
+        <h3>Abilities:</h3>
+        <ul id="pokemonAbilities"></ul>
+      </div>
+      <p id="errorMessage" class="hidden">Please enter a Pokemon name.</p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
