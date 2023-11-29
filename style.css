@@ -27,9 +27,9 @@ h1 {
 
 .container {
   text-align: center;
-  background-color: #ffffffa2;
+  background-color: #ffffff63;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.2),
     0 0 30px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.3s ease-in-out, height 0.5s ease-in-out,
@@ -119,6 +119,13 @@ li {
 .star-button:hover #favorite-text {
   display: inline;
 }
+
+.delete-button {
+  cursor: pointer;
+  margin-left: 5px;
+  color: red;
+}
+
 @keyframes pulse {
   to {
     transform: scale(1.2);

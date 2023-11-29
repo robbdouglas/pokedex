@@ -1,3 +1,30 @@
+window.addEventListener("load", () => {
+  // Überprüfe, ob es eine Pokemon-ID im Anker gibt
+  const pokemonIdFromAnchor = window.location.hash.substring(1);
+  if (pokemonIdFromAnchor) {
+    // Wenn ja, rufe die Pokemon-Daten ab und zeige sie an
+    fetchPokemonDataById(pokemonIdFromAnchor);
+  }
+});
+
+async function fetchPokemonDataById(pokemonId) {
+  try {
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${pokemonId}`
+    );
+
+    if (!response.ok) {
+      throw new Error(`Pokémon not found: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    displayPokemonData(data);
+  } catch (error) {
+    console.error("Error fetching Pokémon data:", error);
+    // Hier können Sie eine Fehlermeldung auf der Seite anzeigen
+  }
+}
+
 // Globale Variable für die aktuelle Pokemon-ID
 let currentPokemonId = 1;
 
@@ -58,7 +85,7 @@ function displayPokemonData(data) {
     const li = document.createElement("li");
     li.textContent = move.move.name;
     pokemonMovesElement.appendChild(li);
-  });   
+  });
 
   const capitalizedPokemonName =
     data.name.charAt(0).toUpperCase() + data.name.slice(1);
