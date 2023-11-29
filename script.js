@@ -162,3 +162,26 @@ inputElement.addEventListener("keypress", function (event) {
     fetchPokemonData();
   }
 });
+
+function toggleFavorite() {
+  const pokemonNameElement = document.getElementById("pokemonName");
+  const pokemonId = currentPokemonId;
+  const capitalizedPokemonName = pokemonNameElement.innerText.split(" ")[0];
+
+  // Hole die gespeicherten Favoriten aus dem Local Storage
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+  // Überprüfe, ob das aktuelle Pokémon ein Favorit ist
+  const isFavorite = favorites.some((favorite) => favorite.id === pokemonId);
+
+  if (isFavorite) {
+    // Entferne das Pokémon aus den Favoriten
+    favorites = favorites.filter((favorite) => favorite.id !== pokemonId);
+  } else {
+    // Füge das Pokémon zu den Favoriten hinzu
+    favorites.push({ id: pokemonId, name: capitalizedPokemonName });
+  }
+
+  // Aktualisiere die Favoriten im Local Storage
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+}
