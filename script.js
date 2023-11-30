@@ -84,7 +84,7 @@ function displayPokemonData(data) {
   const pokemonMovesElement = document.getElementById("pokemonMoves");
   pokemonMovesElement.innerHTML = "";
 
-  data.moves.slice(0, 5).forEach((move) => {
+  data.moves.slice(0, 4).forEach((move) => {
     const li = document.createElement("li");
     li.textContent = move.move.name;
     pokemonMovesElement.appendChild(li);
